@@ -212,7 +212,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void _showWelcomeScreen() {
-    Navigator.push(context,MaterialPageRoute(builder: (context) => const WelcomeBackScreen()));
+    Navigator.push(context,MaterialPageRoute(builder: (context) => const WelcomeScreen()));
   }
 
   @override
@@ -228,21 +228,21 @@ class _SignUpFormState extends State<SignUpForm> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _firstNameTextController,
-              decoration: const InputDecoration(hintText: 'First name'),
+              decoration: const InputDecoration(hintText: 'Name'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _lastNameTextController,
-              decoration: const InputDecoration(hintText: 'Last name'),
+              decoration: const InputDecoration(hintText: 'Username'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _usernameTextController,
-              decoration: const InputDecoration(hintText: 'Username'),
+              decoration: const InputDecoration(hintText: 'Password'),
             ),
           ),
           TextButton(
