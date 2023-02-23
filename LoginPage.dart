@@ -139,7 +139,20 @@ class SignUpScreen extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+//         appBar: AppBar(title: const Text(_title)),
+        
+          appBar: AppBar(
+            title: Text("login page"),
+            leading: IconButton(
+               onPressed: (){
+//                  Navigator.pop(context);
+                 Navigator.of(context).pop(); 
+               },
+               icon:Icon(Icons.arrow_back_ios), 
+               //replace with our own icon data.
+            ),
+    ),
+        
       body: Center(
         child: SizedBox(
           width: 400,
