@@ -13,20 +13,20 @@ class MyApp extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: const MyStatefulWidget(),
+        body: const LoginPage(),
       ),
     );
   }
 }
  
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
  
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<LoginPage> createState() => _LoginPageState();
 }
  
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _LoginPageState extends State<LoginPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
  
@@ -241,6 +241,7 @@ class _SignUpFormState extends State<SignUpForm> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
+              obscureText: true,
               controller: _usernameTextController,
               decoration: const InputDecoration(hintText: 'Password'),
             ),
