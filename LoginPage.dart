@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'User Email',
                 ),
               ),
             ),
@@ -104,7 +104,9 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SignUpApp()),
+              MaterialPageRoute(builder: (context) {
+     return const SignUpScreen();
+   }),
             );
                   },
                 )
@@ -136,23 +138,8 @@ class SignUpScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: Scaffold(
-//         appBar: AppBar(title: const Text(_title)),
-        
-          appBar: AppBar(
-            title: Text("login page"),
-            leading: IconButton(
-               onPressed: (){
-//                  Navigator.pop(context);
-                 Navigator.of(context).pop(); 
-               },
-               icon:Icon(Icons.arrow_back_ios), 
-               //replace with our own icon data.
-            ),
-    ),
-        
+    return Scaffold(
+        appBar: AppBar(title: const Text(_title)),
       body: Center(
         child: SizedBox(
           width: 400,
@@ -161,7 +148,7 @@ class SignUpScreen extends StatelessWidget {
           ),
         ),
       ),
-    ));
+    );
   }
 }
 
@@ -174,6 +161,7 @@ class WelcomeScreen extends StatelessWidget {
       body: Center(
         child:
             Text('Welcome!', style: Theme.of(context).textTheme.displayMedium),
+        
       ),
     );
   }
@@ -286,10 +274,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MyApp()),
-            );
+                    Navigator.pop(context);
                   },
                 )
               ],
