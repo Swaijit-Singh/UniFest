@@ -6,6 +6,8 @@ import 'dart:typed_data';
 import 'package:collection/collection.dart';
 import 'package:http/http.dart' as http;
 import 'package:equatable/equatable.dart';
+import 'package:http_parser/http_parser.dart';
+import 'package:mime_type/mime_type.dart';
 
 import '../../flutter_flow/uploaded_file.dart';
 
@@ -182,6 +184,7 @@ class ApiManager {
               e.key,
               uploadedFile.bytes ?? Uint8List.fromList([]),
               filename: uploadedFile.name,
+              contentType: _getMediaType(uploadedFile.name),
             ),
           ));
     });
@@ -194,6 +197,18 @@ class ApiManager {
 
     final response = await http.Response.fromStream(await request.send());
     return ApiCallResponse.fromHttpResponse(response, returnBody, decodeUtf8);
+  }
+
+  static MediaType? _getMediaType(String? filename) {
+    final contentType = mime(filename);
+    if (contentType == null) {
+      return null;
+    }
+    final parts = contentType.split('/');
+    if (parts.length != 2) {
+      return null;
+    }
+    return MediaType(parts.first, parts.last);
   }
 
   static dynamic createBody(

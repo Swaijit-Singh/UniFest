@@ -78,38 +78,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? HomePageWidget() : LoginPageWidget(),
           routes: [
             FFRoute(
+              name: 'loginPage',
+              path: 'loginPage',
+              builder: (context, params) => LoginPageWidget(),
+            ),
+            FFRoute(
               name: 'HomePage',
               path: 'homePage',
+              requireAuth: true,
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
               name: 'Event',
               path: 'event',
+              requireAuth: true,
               builder: (context, params) => EventWidget(),
             ),
             FFRoute(
               name: 'QRScanner',
               path: 'qRScanner',
+              requireAuth: true,
               builder: (context, params) => QRScannerWidget(),
             ),
             FFRoute(
               name: 'Time_Table',
               path: 'timeTable',
+              requireAuth: true,
               builder: (context, params) => TimeTableWidget(),
             ),
             FFRoute(
               name: 'Map',
               path: 'map',
+              requireAuth: true,
               builder: (context, params) => MapWidget(),
-            ),
-            FFRoute(
-              name: 'loginPage',
-              path: 'loginPage',
-              builder: (context, params) => LoginPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
-        ).toRoute(appStateNotifier),
-      ],
+        ),
+      ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
     );
 
@@ -155,6 +160,16 @@ extension NavigationExtensions on BuildContext {
               queryParams: queryParams,
               extra: extra,
             );
+
+  void safePop() {
+    // If there is only one route on the stack, navigate to the initial
+    // page instead of popping.
+    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
+      go('/');
+    } else {
+      pop();
+    }
+  }
 }
 
 extension GoRouterExtensions on GoRouter {

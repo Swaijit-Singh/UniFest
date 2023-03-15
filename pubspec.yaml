@@ -75,6 +75,7 @@ dependencies:
   sign_in_with_apple_platform_interface: 1.0.0
   sign_in_with_apple_web: 1.0.1
   sqflite: 2.2.0+2
+  table_calendar: 3.0.6
   timeago: 3.2.2
   url_launcher: 6.1.5
   video_player: 2.4.5

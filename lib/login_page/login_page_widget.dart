@@ -237,8 +237,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         children: [
                                           if (Theme.of(context).brightness ==
                                               Brightness.light)
-                                            Image.network(
-                                              'https://imgs.search.brave.com/xQyd32tCldIASzGZ5kcK3Tfiy4UpdgbRqfNvKNEqqHc/rs:fit:1797:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5U/ZUJFYlBlQVlseEtf/bEdIVXAxOTVRSGFC/OSZwaWQ9QXBp',
+                                            CachedNetworkImage(
+                                              imageUrl:
+                                                  'https://imgs.search.brave.com/xQyd32tCldIASzGZ5kcK3Tfiy4UpdgbRqfNvKNEqqHc/rs:fit:1797:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5U/ZUJFYlBlQVlseEtf/bEdIVXAxOTVRSGFC/OSZwaWQ9QXBp',
                                               width: 170.0,
                                               height: 51.8,
                                               fit: BoxFit.fitWidth,

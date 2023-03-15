@@ -68,7 +68,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   child: Stack(
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -0.9),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -175,7 +175,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         text: TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: '[User Name]',
+                                              text: 'Thejus kartha',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .title1,
@@ -224,7 +224,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  '1',
+                                                  '3',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .title2,
@@ -337,7 +337,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             alignment: AlignmentDirectional(
                                                 -0.9, -0.8),
                                             child: Text(
-                                              '[EventName]',
+                                              'AI in Sports',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle1,
@@ -347,7 +347,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             alignment: AlignmentDirectional(
                                                 0.75, -0.75),
                                             child: Text(
-                                              '[dateTime]',
+                                              '30th March,10:00am',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
@@ -389,7 +389,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             alignment: AlignmentDirectional(
                                                 -0.9, -0.8),
                                             child: Text(
-                                              '[EventName]',
+                                              'Drums for Beginners',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle1,
@@ -399,7 +399,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             alignment: AlignmentDirectional(
                                                 0.75, -0.75),
                                             child: Text(
-                                              '[dateTime]',
+                                              '1st April,9:00am',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
@@ -441,7 +441,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             alignment: AlignmentDirectional(
                                                 -0.9, -0.8),
                                             child: Text(
-                                              '[EventName]',
+                                              'FlimMaking',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle1,
@@ -451,7 +451,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             alignment: AlignmentDirectional(
                                                 0.75, -0.75),
                                             child: Text(
-                                              '[dateTime]',
+                                              '1st  April,10:00am',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,

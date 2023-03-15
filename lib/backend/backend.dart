@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/app_record.dart';
 import 'schema/users_record.dart';
+import 'schema/events_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -16,6 +17,7 @@ export 'schema/serializers.dart';
 
 export 'schema/app_record.dart';
 export 'schema/users_record.dart';
+export 'schema/events_record.dart';
 
 /// Functions to query AppRecords (as a Stream and as a Future).
 Future<int> queryAppRecordCount({
@@ -115,6 +117,58 @@ Future<FFFirestorePage<UsersRecord>> queryUsersRecordPage({
     queryCollectionPage(
       UsersRecord.collection,
       UsersRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query EventsRecords (as a Stream and as a Future).
+Future<int> queryEventsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EventsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EventsRecord>> queryEventsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EventsRecord.collection,
+      EventsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EventsRecord>> queryEventsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EventsRecord.collection,
+      EventsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<EventsRecord>> queryEventsRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      EventsRecord.collection,
+      EventsRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
