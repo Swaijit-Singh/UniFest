@@ -43,13 +43,24 @@ class ApiCallRecord extends Equatable {
 }
 
 class ApiCallResponse {
-  const ApiCallResponse(this.jsonBody, this.headers, this.statusCode);
+  const ApiCallResponse(
+    this.jsonBody,
+    this.headers,
+    this.statusCode, {
+    this.response,
+  });
   final dynamic jsonBody;
   final Map<String, String> headers;
   final int statusCode;
+  final http.Response? response;
   // Whether we received a 2xx status (which generally marks success).
   bool get succeeded => statusCode >= 200 && statusCode < 300;
   String getHeader(String headerName) => headers[headerName] ?? '';
+  // Return the raw body from the response, or if this came from a cloud call
+  // and the body is not a string, then the json encoded body.
+  String get bodyText =>
+      response?.body ??
+      (jsonBody is String ? jsonBody as String : jsonEncode(jsonBody));
 
   static ApiCallResponse fromHttpResponse(
     http.Response response,
@@ -63,7 +74,12 @@ class ApiCallResponse {
           : response.body;
       jsonBody = returnBody ? json.decode(responseBody) : null;
     } catch (_) {}
-    return ApiCallResponse(jsonBody, response.headers, response.statusCode);
+    return ApiCallResponse(
+      jsonBody,
+      response.headers,
+      response.statusCode,
+      response: response,
+    );
   }
 
   static ApiCallResponse fromCloudCallResponse(Map<String, dynamic> response) =>

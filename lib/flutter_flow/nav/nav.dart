@@ -111,6 +111,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'map',
               requireAuth: true,
               builder: (context, params) => MapWidget(),
+            ),
+            FFRoute(
+              name: 'Settings',
+              path: 'settings',
+              requireAuth: true,
+              builder: (context, params) => SettingsWidget(),
+            ),
+            FFRoute(
+              name: 'EditProfile',
+              path: 'editProfile',
+              requireAuth: true,
+              builder: (context, params) => EditProfileWidget(),
+            ),
+            FFRoute(
+              name: 'ForgetPW',
+              path: 'forgetPW',
+              requireAuth: true,
+              builder: (context, params) => ForgetPWWidget(),
+            ),
+            FFRoute(
+              name: 'OrderHistory',
+              path: 'orderHistory',
+              requireAuth: true,
+              builder: (context, params) => OrderHistoryWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -181,6 +205,7 @@ extension GoRouterExtensions on GoRouter {
           : appState.updateNotifyOnAuthChange(false);
   bool shouldRedirect(bool ignoreRedirect) =>
       !ignoreRedirect && appState.hasRedirect();
+  void clearRedirectLocation() => appState.clearRedirectLocation();
   void setRedirectLocationIfUnset(String location) =>
       (routerDelegate.refreshListenable as AppStateNotifier)
           .updateNotifyOnAuthChange(false);
