@@ -237,12 +237,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         children: [
                                           if (Theme.of(context).brightness ==
                                               Brightness.light)
-                                            CachedNetworkImage(
-                                              imageUrl:
-                                                  'https://imgs.search.brave.com/xQyd32tCldIASzGZ5kcK3Tfiy4UpdgbRqfNvKNEqqHc/rs:fit:1797:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5U/ZUJFYlBlQVlseEtf/bEdIVXAxOTVRSGFC/OSZwaWQ9QXBp',
-                                              width: 170.0,
-                                              height: 51.8,
-                                              fit: BoxFit.fitWidth,
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Image.asset(
+                                                'assets/images/Screenshot_2023-03-26_155509-PhotoRoom.png-PhotoRoom.png',
+                                                width: 170.0,
+                                                height: 150.6,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
@@ -574,27 +577,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     FFButtonWidget(
                                                                       onPressed:
                                                                           () async {
-                                                                        if (_model
-                                                                            .emailAddressController
-                                                                            .text
-                                                                            .isEmpty) {
-                                                                          ScaffoldMessenger.of(context)
-                                                                              .showSnackBar(
-                                                                            SnackBar(
-                                                                              content: Text(
-                                                                                'Email required!',
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                          return;
-                                                                        }
-                                                                        await resetPassword(
-                                                                          email: _model
-                                                                              .emailAddressController
-                                                                              .text,
-                                                                          context:
-                                                                              context,
-                                                                        );
+                                                                        context.pushNamed(
+                                                                            'ForgetPW');
                                                                       },
                                                                       text:
                                                                           'Forgot Password?',
@@ -638,7 +622,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     Align(
                                                                       alignment:
                                                                           AlignmentDirectional(
-                                                                              0.05,
+                                                                              0.0,
                                                                               0.0),
                                                                       child:
                                                                           FFButtonWidget(
