@@ -249,11 +249,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
-                                            CachedNetworkImage(
-                                              imageUrl:
-                                                  'https://imgs.search.brave.com/xQyd32tCldIASzGZ5kcK3Tfiy4UpdgbRqfNvKNEqqHc/rs:fit:1797:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5U/ZUJFYlBlQVlseEtf/bEdIVXAxOTVRSGFC/OSZwaWQ9QXBp',
+                                            Image.asset(
+                                              'assets/images/Screenshot_2023-03-26_155509-PhotoRoom.png-PhotoRoom.png',
                                               width: 170.0,
-                                              height: 50.0,
+                                              height: 146.9,
                                               fit: BoxFit.fitWidth,
                                             ),
                                         ],
